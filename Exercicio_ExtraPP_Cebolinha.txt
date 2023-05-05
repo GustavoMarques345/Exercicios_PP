@@ -1,0 +1,56 @@
+Exercicio_Extra Gustvo Mrques Oliveira
+
+Cebolinha, trocar 'r' ou 'rr' por l.
+
+Código
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+   // Variáveis
+   char letra[150];
+   int i, j;
+   char a;
+   strlen(letra);
+   printf("Insira uma palavra de ate 100 caracteresm\n (De preferencia palavras que contenhm 'r' ou 'rr')\n");
+   fflush(stdin);
+   fgets(letra, 150, stdin);
+
+   // loop
+   for(i = 0; i < 100; i++){
+        if(letra[i] == 'r' && letra[i + 1] == 'r' || letra[i] == 'R' && letra[i + 1] == 'R'){
+            for(j = i; j < 150; j++){
+                letra[j] = letra[j + 1];
+            }
+        }
+
+    if(letra[i] == 'r'){
+        if(letra[i + 1] >= 0 && letra[i + 1] <= 47 || letra[i + 1] >= 58 && letra[i + 1] <= 64){
+            continue;
+        }else{
+            letra[i] = 'l';
+        }
+    }
+
+    if(letra[i] == 'R'){
+        if(letra[i + 1] >= 0 && letra[i + 1] <= 47 || letra[i + 1] >= 58 && letra[i + 1] <= 64){
+            continue;
+        }else{
+            letra[i] = 'L';
+        }
+    }
+
+
+
+
+
+   }
+    printf("%s\n", letra);
+
+
+   return 0;
+}
