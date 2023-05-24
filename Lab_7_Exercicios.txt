@@ -1,0 +1,314 @@
+
+Prof. Me. Claudiney R. Tinoco e Profa. Dra. Amanda C. Davi Resende
+Lab08 – Ponteiros – Parte 1
+
+Gustavo Marques Oliveira 12221BCC021
+
+1 Determine o valor especificado em cada item abaixo considerando que foi
+executado as seguintes instruções (assuma que o endereço de x é 1000 e
+de y é 1004):
+ int x = 10, y=20;
+ int* p1;
+ int* p2;
+ p1 = &x;
+ p2 = &y;
+ (p1)++;
+
+ (a) x = 10
+ (b) y = 20
+ (c) &x = 1004
+ (d) &y = 1004
+ (e) p1 = 1000
+ (f) p2 = 1004
+ (g) *p1 + *p2 = 40
+ (h) *(&x) = 10 *(&x)
+ (i) &(*p2) = 1004
+
+
+2 Escreva um programa que declare um inteiro, um real e um char, e
+ponteiros para inteiro, real e char. Associe as variáveis aos ponteiros (use
+&). Modifique os valores de cada variável usando os ponteiros. Imprima os
+valores das variáveis antes e após a modificação.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    int x;
+    float y;
+    char a;
+    
+    // Ponteiros
+    int *p1;
+    float *p2;
+    char *p3;
+    
+    p1 = &x;
+    p2 = &y;
+    p3 = &a;
+    
+    printf("Insira um valor inteiro: \n");
+    scanf("%d", &x);
+    
+    printf("Insira um valor real: \n");
+    scanf("%f", &y);
+    
+    printf("Insira a letra de um objeto: \n");
+    scanf("%c", &a);
+    
+    // Imprimindo resultados
+    printf(" Inteiro = %d\n Ponto flutuante = %f\nCaractere : %c\n", x, y, a);
+    
+    
+    return 0;
+}
+
+
+
+
+3 Escreva um programa que contenha duas variáveis inteiras. Compare seus
+endereços e exiba o maior endereço.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    int A, B;
+    
+    
+    // Ponteiros
+    int *p1;
+    int *p2;
+    
+    p1 = &A; // Associando endereço
+    p2 = &B;
+    
+    
+    printf("Insira um valor inteiro: \n");
+    scanf("%d", &A);
+    
+    printf("Insira outro valor inteiro: \n");
+    scanf("%f", &B);
+    
+    printf("Insira a letra de um objeto: \n");
+    scanf("%c", &a);
+    
+    // Condição
+    if(p1 > p2){
+        printf("O maior endereco eh P1: %d\n", p1);
+    }else{
+         printf("O maior endereco eh P2: %d\n", p2);
+    
+    }
+    
+    
+    return 0;
+}
+
+
+
+
+
+4 Escreva um programa que contenha duas variáveis inteiras. Leia essas
+variáveis do teclado. Em seguida, compare seus endereços e exiba o
+conteúdo do maior endereço.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    int A, B;
+    
+    
+    // Ponteiros
+    int *p1;
+    int *p2;
+    
+    p1 = &A; // Associando endereço
+    p2 = &B;
+    
+    
+    printf("Insira um valor inteiro: \n");
+    scanf("%d", &A);
+    
+    printf("Insira outro valor inteiro: \n");
+    scanf("%f", &B);
+    
+    printf("Insira a letra de um objeto: \n");
+    scanf("%c", &a);
+    
+    // Condição
+    if(p1 > p2){
+        printf("O maior endereco eh P1: %d\n", p1);
+        printf("O numero contido nela eh: %d\n", *p1);
+    }else{
+         printf("O maior endereco eh P2: %d\n", p2);
+         printf("O numero contido nela eh: %d", *p2);
+    
+    }
+    
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+5 Faça um programa que leia dois variáveis do tipo inteiro (A e B) e duas do
+tipo ponteiro de inteiro apontando para essas variáveis. Utilizando ponteiros,
+o programa deve retornar a soma do dobro dos dois números lidos. O dobro
+de A na própria variável A e o dobro de B na própria variável B.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int A, B, resultado; // Representa os numeros inteiros e o resultado da soma
+    
+    int *p1;
+    int *p2;
+    
+    // Preechendo valores
+    
+    printf("Insira dois numeros inteiros: \n");
+    scanf("%d %d", &A, &B);
+    
+    *p1 *= 2;
+    *p2 *= 2;
+    
+    printf("A soma do dobro dos numeros eh: %d %d\n", *p1, *p2);
+    
+    return 0;
+}
+
+
+
+
+
+
+6 Escreva um programa que declare duas variáveis do tipo inteiro e duas do
+tipo ponteiro de inteiro apontando para essas variáveis. Utilizando ponteiros,
+o programa deve ler dois números para essas variáveis e os imprimir,
+realizando as quatro operações básicas de matemática com esses números.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int A, B, resultado; // Representa os numeros inteiros e o resultado da soma
+
+    int *p1;
+    int *p2;
+
+    *p1 = &A;
+    *p2 = &B;
+
+
+    // Preechendo valores
+
+    printf("Insira dois numeros inteiros: \n");
+    scanf("%d %d", &A, &B);
+
+
+    printf("A soma dos numeros eh: %d\n", (*p1 + *p2));
+    printf("A subtracao dos numeros eh: %d\n", (*p1 - *p2));
+    printf("A multiplicacao dos numeros eh: %d\n", (*p1 * *p2));
+    printf("A divisao dos numeros eh: %d\n", (*p1 / *p2));
+
+    return 0;
+}
+
+
+
+
+7 Faça um programa que declare três variáveis do tipo inteiro e três do tipo
+ponteiro de inteiro apontando para essas variáveis. Utilizando ponteiros, leia
+três números e os imprima em ordem crescente. O programa deve
+apresentar também o endereço de memória desses números.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+
+    int A, B, C;
+
+    // Ponteiros
+    int *p1;
+    int *p2;
+    int *p3;
+    // Associando com a memória
+
+    p1 = &A;
+    p2 = &B;
+    p3 = &C;
+
+    // Condição para ordem cresecnte
+
+    if(A > B && A > C){
+        printf("Os numeros em ordem crescente sao: numero: %d nmemoria: %d\nNumero: %d Memoria: %d\nNumero: %d Memoria: %d\n", *p1, p1, *p2, p2, *p3, p3);
+    } else if(B > A && B > C){
+         printf("Os numeros em ordem crescente sao: numero: %d nmemoria: %d\nNumero: %d Memoria: %d\nNumero: %d Memoria: %d\n", *p2, p2, *p3, p3, *p1, p1);
+    } else if(C > A && C > B){
+         printf("Os numeros em ordem crescente sao: numero: %d nmemoria: %d\nNumero: %d Memoria: %d\nNumero: %d Memoria: %d\n", *p3, p3, *p2, p2, *p1, p1);
+
+    }
+
+    return 0;
+}
+
+
+
+8 Faça um programa que leia seis números e armazene-os em um vetor.
+Utilizando aritmética de ponteiro, imprima os valores do vetor. O programa
+deve apresentar também o endereço de memória desses números.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    int vet[6];
+    int i;
+    int *p;
+
+    //Associando à memória
+    p = &vet[0];
+
+    //Loop para preencher
+    for(i = 0; i < 6; i++){
+        printf("Insira um numero para o vetor: \n");
+        scanf("%d", &p);
+
+        p++;
+    }
+
+    // Imprimindo valores
+
+    for(i = 0; i < 6; i++){
+        printf("Vetor[%d] = %d\n Memoria: %d\n", i, *p, p);
+    }
+
+    return 0;
+}
+
