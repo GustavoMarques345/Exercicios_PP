@@ -1,0 +1,322 @@
+Lab08 – Ponteiros – Parte 2
+
+
+
+
+1 Crie um programa que contenha um array de float contendo 10 elementos.
+Utilizando aritmética de ponteiro, imprima o endereço de cada posição
+desse array.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    float Vet[10];
+    float *p;
+    int i; // Variável para contar a posição do vetor
+
+    p = &Vet[0];
+
+    // Loop
+    for(i = 0; i < 10; i++){
+        printf("O vetor[%d] Tem endereco: %p\n", i, p + 1);
+
+    }
+    return 0;
+}
+
+
+
+
+
+2 Crie um programa que contenha uma matriz de float contendo 3 linhas e 3
+colunas. Utilizando aritmética de ponteiro, imprima o endereço de cada
+posição dessa matriz.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    float mat[3][3];
+    int i, j; // Usado para percorrer a matriz
+    float *p;
+
+    p = &mat[0][0];
+
+    //Loop para preencher a matriz
+    for(i = 0; i < 3; i++){
+        for(j = 0; j < 3; j++){
+            printf("Insira valores na matriz[%d][%d]: \n", i+1, i+1);
+            scanf("%f", &mat[i][i]);
+        }
+    }
+    // Imprimindo o endereço  na memória de cada posição
+    for(i = 0; i < 3; i++){
+        for(j = 0; j < 3; j++){
+            printf("Matriz na posição [%d][%d] tem memoria igual a = %f\n", i + 1, i + 1, p);
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+3 Crie um programa que contenha um array de inteiros contendo 5 elementos.
+Utilizando apenas aritmética de ponteiros, leia esse array do teclado e
+imprima o dobro de cada valor lido.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    float Vet[5];
+    int i;
+    int *p;
+
+    p = &Vet[0];
+
+    //Loop para preencher o vetor
+    for(i = 0; i < 5; i++){
+    printf("Insira valores do Vetor[%d]: \n", i+1);
+        scanf("%d", &Vet[i]);
+    }
+    // Imprimindo valores
+    for(i = 0; i < 5; i++){
+        *(p + i) *= 2;
+        printf("O dobro do valor contido em Vet[%d] eh: %d\n", i + 1, *(p + i));
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+4 Crie um programa que contenha um array contendo 5 elementos inteiros.
+Leia esse array do teclado e imprima o endereço das posições contendo
+valores pares.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    float Vet[5];
+    int i;
+    int *p;
+
+    p = &Vet[0];
+
+    //Loop para preencher o vetor
+    for(i = 0; i < 5; i++){
+    printf("Insira valores do Vetor[%d]: \n", i+1);
+        scanf("%d", &Vet[i]);
+    }
+    // Imprimindo valores
+    for(i = 0; i < 5; i++){
+
+        if(*(p + i) %2 == 0){
+        printf("O valor da memoria (par) em Vet[%d] = %d\n", i + 1, (p + 1));
+        }
+    }
+    return 0;
+}
+
+
+
+
+
+
+5 Elabore um programa que receba duas strings digitadas pelo usuário e
+verifique se a segunda string ocorre dentro da primeira. Use aritmética de
+ponteiros para acessar os caracteres das strings.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    // Variáveis
+    char str1[50], str2[50];
+    int i, verifica = 0; // Verifica se é substring
+
+    // Ponteiros que irão verificar as strings examinadas e posiçoes que serão comparadas
+    char *p1;
+    char *p2;
+    char *p3;
+
+    p1 = &str1;
+    p2 = &str2;
+    p3 = &str1;
+
+    // Preenchendo as strings
+    printf("Insira algo de ate 50 caracteres na primeia string: \n");
+    fgets(str1, 50, stdin);
+
+    printf("Insira algo de ate 50 caracteres na segunda string: \n");
+    fgets(str2, 50, stdin);
+
+    // Loop para verificar as strings
+    for(i = 0; i < *(p1 + i) != '\0'; i++){
+        while(1){
+            if(*p2 == '\0'){
+                verifica = 1;
+                break;
+            }
+            if(*p3 != *p2){ // Se houver caracteres disintos o loop para
+                p3 ++;
+                p2 ++;
+                break;
+            }
+
+    }
+    p3 = (p1 + i);
+    p2 = str2;
+    if(verifica == 1){ // Se alguma substring for acahada o loop para
+        break;
+    }
+    }
+    if(verifica == 1){
+        printf("Segunda string eh substring da primeira\n");
+    }else{
+         printf("Segunda string nao eh substring da primeira\n");
+
+    }
+
+    return 0;
+}
+
+
+
+
+6 Elabore um programa que dado um array e um valor do mesmo tipo do
+array, preencha os elementos de array com esse valor. Não utilize índices
+para percorrer o array, apenas aritmética de ponteiros.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Variáveis
+    int Vet[5]; // Array de 5 posições
+    int i;
+    int *p; // ponteiro
+
+    p = &Vet[0];
+
+    printf("Insira um valor inteiro: \n");
+    scanf("%d", &p);
+    // loop
+
+    for(i = 1; i < 5; i++){
+        *(p + i) = *p;
+    }
+
+    for(i = 0; i < 5; i++){
+        printf(" O valor do vetor[%d] eh : %d\n", i + 1, *(p + i));
+    }
+
+
+    return 0;
+}
+
+
+
+
+
+
+7 Escreva um programa que receba um array de inteiros com 10 elementos
+digitados pelo usuário e encontre o menor (min) e o maior (max) elemento
+desse array. Utilize ponteiros tanto para acessar o array quanto para acessar
+as variáveis min e max, ou seja, são necessários pelo menos 3 ponteiros.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   // Variáveis
+   int Vet[10];
+   int i, max, min;
+
+   // Ponteiros
+   int *p1;
+   int *p2;
+   int *p3;
+
+   p1 = &Vet[0];
+
+   // Prenchendo o vetor
+   for(i = 0; i < 10; i++){
+    printf("Insira um valor inteiro no vetor[%d]: \n", i + 1);
+    scanf("%d", &Vet[i]);
+   }
+
+    // Loop para máximo e mínimo
+    for(i = 0; i < 10; i++){
+        if(*(p1 + i) > *(p1 + i + 1)){
+            max = *(p1 + i);
+            min = *(p1 + i + 1);
+
+        }
+
+    }
+
+    // Imprimindo
+    printf("\nValor maximo eh: %d\n Valor minimo eh: %d\n", max, min);
+
+    return 0;
+}
+
+
+
+
+
+
+8 Considere a seguinte declaração: int A, *B, **C, ***D; Escreva um
+programa que leia a variável ‘A’ e calcule e exiba o dobro, o triplo e o
+quádruplo desse valor utilizando apenas os ponteiros B, C e D. O ponteiro B
+deve ser usada para calcular o dobro, C o triplo e D o quádruplo.
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int A;
+    int *B ;
+    int **C;
+    int ***D;
+
+    B = &A;
+    C = &B;
+    D = &C;
+
+    printf("Insira um valor inteiro: \n");
+    scanf("%d", &A);
+
+    printf("\n O dobro desse numero eh: %d\n O triplo desse numero eh: %d\n O quadroplo desse numero eh: %d\n", (*B)*2, (**C)*3, (***D)*4);
+    return 0;
+}
